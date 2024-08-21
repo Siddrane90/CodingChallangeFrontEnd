@@ -1,0 +1,18 @@
+
+<mat-spinner *ngIf="product.data.$values === null"></mat-spinner>
+
+<mat-card *ngFor="let values of product.data.$values" style="margin-top:12px;">
+    <mat-card-header>
+        <mat-card-title>{{values.productName}}</mat-card-title>
+        <mat-card-subtitle>{{values.pricePerUnit}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{values.productDescription}}
+        </p>
+        <p>{{values.productStatus}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+</mat-card-actions>
+</mat-card>
