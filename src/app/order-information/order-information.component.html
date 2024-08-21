@@ -1,0 +1,25 @@
+<table class="styled-table">
+    <thead>
+        <th>Order ID</th>
+        <th>Order Status</th>
+        <th>Order Amount</th>
+        <th>Comission Amount</th>
+        <th>Total Amount</th>
+        <th>Pay Order</th>
+        <th>Cancel Order</th>
+        <th>View Order Detail</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of ordersInformation.data.$values">
+            <td>{{order.id}}</td>
+            <td>{{order.orderStatus}}</td>
+            <td>${{order.paymentValuePreComission}}</td>
+            <td>${{ +order.paymentValuePostComission - +order.paymentValuePreComission }}</td> 
+            <td>${{ +order.paymentValuePreComission + (+order.paymentValuePostComission - +order.paymentValuePreComission) }}</td> 
+            <td><button mat-raised-button type="button" value={{order.id}} (click)="PayOrder(order.id)">Pay This Order</button></td>
+            <td><button mat-raised-button type="button" value={{order.id}} (click)="CancelOrder(order.id)">Cancel This Order</button></td>
+            <td><button mat-raised-button type="button" value={{order.id}} (click)="OrderDetails(order.id)">View Order Detail</button></td>
+        </tr>
+    </tbody>
+</table>
+<br/>
