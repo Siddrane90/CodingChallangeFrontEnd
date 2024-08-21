@@ -1,0 +1,43 @@
+<table class="styled-table">
+    <thead>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th>Add To Cart</th>
+        <th>Remove From Cart</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of product.data.$values">
+            <td>{{product.id}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productDescription}}</td>
+            <td>${{product.pricePerUnit}}</td>
+            <td><button mat-raised-button type="button" value={{product.id}} (click)="AddToCart(product.id)">Add To Cart</button></td>
+            <td><button mat-raised-button type="button" value={{product.id}} (click)="DeleteFromCart(product.id)">Delete from Cart</button></td>
+        </tr>
+    </tbody>
+</table>
+<div class="center">
+<table class="styled-table">
+    <tr>
+        <td colspan="3"><div class="center">Select a Payment Method :</div></td>
+    </tr>
+    <tr>
+        <td><input type="radio" id="Cash" name="PaymentType" value="Cash" (change)="paymentMethodChangeHandler($event)"> <label for="Cash">Cash</label></td>
+        <td><input type="radio" id="Card" name="PaymentType" value="Card" (change)="paymentMethodChangeHandler($event)"> <label for="Card">Card</label></td>
+        <td><input type="radio" id="Transfer" name="PaymentType" value="Transfer" (change)="paymentMethodChangeHandler($event)"> <label for="Transfer">Transfer</label></td>
+    </tr>
+    <tr>
+        <td colspan="3"><div class="center">Items In Cart : {{cartItems}} </div></td>
+    </tr>
+    <tr>
+        <td colspan="3"><div class="center">Selected Payment Method : {{selectedPaymentMethod}}</div></td>
+    </tr>
+    <tr>
+        <td colspan="3"><div class="center"><button mat-raised-button type="button" value="Place Order" (click)="SubmitOrder()">Place Order</button></div></td>
+    </tr>
+</table>
+</div>
+
+
