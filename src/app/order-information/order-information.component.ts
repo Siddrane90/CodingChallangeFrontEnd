@@ -7,6 +7,8 @@ import {MatDialog} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ModalComponent } from '../shared/modal/modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {PolymerElement, html} from '@polymer/polymer';
+import '@polymer/paper-dialog/paper-dialog.js';
 
 
 
@@ -49,6 +51,7 @@ export class OrderInformationComponent implements OnInit {
     catch(error)
     {
       console.log("Exception Occured While Processig  : "+error);
+      confirm("An Error Occured while Paying the Order , Order cannot be payed for");
     }
   }
 
@@ -67,6 +70,7 @@ export class OrderInformationComponent implements OnInit {
     catch(error)
     {
       console.log("Exception Occured While Processig : "+error);
+      confirm("An Error Occured while cancelling the Order , Order was not cancelled");
     }
   }
 
@@ -87,6 +91,7 @@ export class OrderInformationComponent implements OnInit {
     catch(error)
     {
       console.log("Exception Occured While Processig : "+error);
+      confirm("An Error Occured while retriving Order Details , Orders cannot be displayed");
     }
 
   }
