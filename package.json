@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
+    "@polymer/paper-dialog": "^3.0.1",
     "bootstrap": "^5.3.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
