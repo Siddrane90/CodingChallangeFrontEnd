@@ -136,19 +136,14 @@ export class PlaceOrderComponent implements OnInit {
 
             this.orderDataService.post("Order",JSON.stringify(this.placeOrder)).subscribe((res: GenericResponseDTO) =>
               {
-                this.placedorderResponse = res;
-                console.log(this.placedorderResponse);
-              });
-
-              console.log(this.placedorderResponse.statusSucess);
-
-              if(this.placedorderResponse.statusSucess == true)
-              {
+                console.log(res);
                 confirm("Order Placed Successfully,Thank You!");
-              }
-              else{
+              },
+              (error) => {
+                // This block will only execute if catchError is used
                 confirm("Sorry! The Order could not be placed due to a issue");
-              }
+              });
+              
             }
             else
               {
@@ -166,7 +161,8 @@ export class PlaceOrderComponent implements OnInit {
     }
     catch(error)
     {
-      console.log("Excpetion Occured : " + error);
+      console.log("Exception Occured : " + error);
+      
     }
 
   }
